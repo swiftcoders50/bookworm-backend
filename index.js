@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
 const homeRouter = require("./routers/homeRouter");
+const booksRouter = require("./routers/booksRouter");
 
 const app = express();
 dotenv.config();
@@ -21,6 +22,7 @@ mongoose
 app.use(express.json());
 
 app.use("/", homeRouter);
+app.use("/books", booksRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`App listening to port ${process.env.PORT}.`);
