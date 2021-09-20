@@ -2,28 +2,28 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const todoHandler = require("./routers/todoHandler");
 
-const homeRouter = require("./routers/homeRouter");
-const booksRouter = require("./routers/booksRouter");
-
+// express app initialization
 const app = express();
-dotenv.config();
-
+app.use(express.json());
 app.use(cors());
 
+dotenv.config();
+
+// database connection with mongoose
 mongoose
-  .connect(process.env.MONGO_CONNECTION_STRING, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Database Connection Successful."))
-  .catch((err) => console.log(err));
+	.connect(process.env.MONGO_CONNECTION_STRING, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
+	.then(() => console.log("Database Connection Successfully!."))
+	.catch((err) => console.log(err));
 
-app.use(express.json());
+// application routes
+app.use("/todo", todoHandler);
 
-app.use("/", homeRouter);
-app.use("/books", booksRouter);
-
+// default error handler
 app.listen(process.env.PORT, () => {
-  console.log(`App listening to port ${process.env.PORT}.`);
+	console.log(`App listening to port ${process.env.PORT}.`);
 });
