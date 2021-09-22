@@ -5,6 +5,7 @@ const {
 	getBooks,
 	foreignBooks,
 	bestSellerBooks,
+	unreleasedBooks,
 } = require("../controllers/booksController");
 
 const router = express.Router();
@@ -23,5 +24,8 @@ router.get("/foreign-books", foreignBooks);
 
 // get best seller books
 router.get("/best-seller-books", bestSellerBooks);
+
+// get unreleased books
+router.get("/unreleased-books", unreleasedBooks);
 
 module.exports = router;

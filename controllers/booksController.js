@@ -38,10 +38,17 @@ async function bestSellerBooks(req, res) {
 	res.status(200).json(books);
 }
 
+// Get best-seller books data
+async function unreleasedBooks(req, res) {
+	const books = await Book.find({ bookCategory: "unreleased-books" });
+	res.status(200).json(books);
+}
+
 module.exports = {
 	addNewBook,
 	getBooks,
 	foreignBooks,
 	addAllNewBooks,
 	bestSellerBooks,
+	unreleasedBooks,
 };
