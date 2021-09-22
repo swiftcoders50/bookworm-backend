@@ -1,3 +1,4 @@
+const { insertMany } = require("../models/Book");
 const Book = require("../models/Book");
 
 // Add new book
@@ -7,6 +8,15 @@ async function addNewBook(req, res) {
 	res.status(200).json({
 		message: "New book added successfully.",
 		newBookData: result,
+	});
+}
+
+// Add all new books
+async function addAllNewBooks(req, res) {
+	const result = await Book.insertMany(req.body);
+	res.status(200).json({
+		message: "All new books added successfully.",
+		allNewBookData: result,
 	});
 }
 
@@ -22,8 +32,16 @@ async function foreignBooks(req, res) {
 	res.status(200).json(books);
 }
 
+// Get best-seller books data
+async function bestSellerBooks(req, res) {
+	const books = await Book.find({ bookCategory: "best-seller" });
+	res.status(200).json(books);
+}
+
 module.exports = {
 	addNewBook,
 	getBooks,
 	foreignBooks,
+	addAllNewBooks,
+	bestSellerBooks,
 };
