@@ -24,7 +24,7 @@ app.use(express.json());
 app.use("/", homeRouter);
 
 //  Orders
-app.use("/addOrders",ordersRouter);
+app.use("/orders",ordersRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`App listening to port ${process.env.PORT}.`);
