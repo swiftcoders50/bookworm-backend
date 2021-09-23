@@ -7,6 +7,7 @@ async function orders(req, res) {
   }
 
   async function addOrders(req, res) {
+ 
     const newOrder = new Order(req.body);
     await newOrder.save((err) => {
       if (err) {

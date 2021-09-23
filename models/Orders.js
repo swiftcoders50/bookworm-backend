@@ -6,7 +6,6 @@ const reqString = {
 }
 
 const userSchema = mongoose.Schema({
-    userId : reqString,
     userEmail: reqString,
     userName : reqString,
 });
@@ -33,7 +32,8 @@ const paymentDataSchema = mongoose.Schema({
     totalPrice : {
         type : Number,
         required : true,
-    }
+    },
+    cardNumber : String
 });
 
 const shippingDataSchema = mongoose.Schema({
@@ -49,6 +49,10 @@ const ordersSchema = mongoose.Schema({
     orderData: [orderDataSchema],
     paymentData : paymentDataSchema,
     shippingData : shippingDataSchema,
+    status: {
+        type: String,
+        required: true,
+    }
 
 });
 module.exports = ordersSchema;
