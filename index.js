@@ -9,6 +9,8 @@ const ordersRouter = require("./routers/ordersRouter");
 
 const booksRouter = require("./routers/booksRouter");
 
+const adminRouter = require("./routers/adminRouter");
+
 // application initialization
 const app = express();
 dotenv.config();
@@ -30,6 +32,9 @@ app.use("/books", booksRouter);
 
 //  Orders
 app.use("/orders", ordersRouter);
+
+// admin
+app.use("/admin", adminRouter);
 
 app.listen(process.env.PORT, () => {
 	console.log(`App listening to port ${process.env.PORT}.`);
