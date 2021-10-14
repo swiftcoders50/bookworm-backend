@@ -6,7 +6,7 @@ async function addNewAdmin(req, res) {
 	const result = await newAdmin.save();
 	res.status(200).json({
 		message: "New admin added successfully.",
-		newDataData: result,
+		newAdminData: result,
 	});
 }
 
