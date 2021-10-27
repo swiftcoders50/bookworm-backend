@@ -16,4 +16,5 @@ async function getAdmin(req, res) {
 	await res.status(200).json(admin);
 }
 
-module.exports = { addNewAdmin, getAdmin };
+module.exports = { getAdmin };
+// module.exports = { addNewAdmin, getAdmin };

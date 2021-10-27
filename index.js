@@ -9,7 +9,7 @@ const ordersRouter = require("./routers/ordersRouter");
 
 const booksRouter = require("./routers/booksRouter");
 
-const adminRouter = require("./routers/adminRouter");
+// const adminRouter = require("./routers/adminRouter");
 
 // application initialization
 const app = express();
@@ -34,7 +34,7 @@ app.use("/books", booksRouter);
 app.use("/orders", ordersRouter);
 
 // admin
-app.use("/admin", adminRouter);
+// app.use("/admin", adminRouter);
 
 app.listen(process.env.PORT, () => {
 	console.log(`App listening to port ${process.env.PORT}.`);
