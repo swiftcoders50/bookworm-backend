@@ -34,7 +34,7 @@ app.use("/books", booksRouter);
 app.use("/orders", ordersRouter);
 
 // admin
-app.use("/admin", adminRouter);
+// app.use("/admin", adminRouter);
 
 app.listen(process.env.PORT, () => {
 	console.log(`App listening to port ${process.env.PORT}.`);
