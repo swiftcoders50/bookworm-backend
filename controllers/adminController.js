@@ -12,9 +12,9 @@ async function addNewAdmin(req, res) {
 
 // Get books data
 async function getAdmin(req, res) {
-	const admin = await Admin.find({ email: req.query.email });
+	const admin = await Admin.find();
 	if (admin.length > 0) {
-		res.status(200).json({ admin: true });
+		res.status(200).json(admin);
 	} else {
 		res.status(404).json({ admin: false });
 	}
